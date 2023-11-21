@@ -18,7 +18,7 @@ interface FreeCounterProps {
 
 export const FreeCounter = ({
   apiLimitCount = 0,
-  isPro = false
+  isPro = false,
 }: FreeCounterProps) => {
   const proModal = useProModal()
   const [mounted, setMounted] = useState(false)
@@ -49,7 +49,11 @@ export const FreeCounter = ({
             />
           </div>
 
-          <Button onClick={proModal.onOpen} className="w-full" variant="premium">
+          <Button
+            onClick={proModal.onOpen}
+            className="w-full"
+            variant="premium"
+          >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>

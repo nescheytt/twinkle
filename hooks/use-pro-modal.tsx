@@ -1,9 +1,9 @@
 import { create } from "zustand"
 
 interface useProModalStore {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
+  isOpen: boolean
+  onOpen: () => void
+  onClose: () => void
 }
 
 export const useProModal = create<useProModalStore>((set) => ({
@@ -11,4 +11,3 @@ export const useProModal = create<useProModalStore>((set) => ({
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }))
-

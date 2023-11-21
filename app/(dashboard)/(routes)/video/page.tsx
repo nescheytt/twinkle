@@ -13,7 +13,7 @@ import { Heading } from "@/components/heading"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Empty } from "@/components/empty"
+import { Empty } from "@/components/ui/empty"
 import { Loader } from "@/components/loader"
 
 import { useProModal } from "@/hooks/use-pro-modal"
@@ -103,9 +103,7 @@ const VideoPage = () => {
             </div>
           )}
 
-          {!video && !isLoading && (
-            <Empty label="No video generated." />
-          )}
+          {!video && !isLoading && <Empty label="No video generated." />}
 
           {video && (
             <video

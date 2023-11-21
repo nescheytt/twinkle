@@ -1,20 +1,20 @@
 "use client"
 
-import axios from "axios";
-import { useState } from "react";
-import { Zap } from "lucide-react";
-import { toast } from "react-hot-toast";
+import axios from "axios"
+import { useState } from "react"
+import { Zap } from "lucide-react"
+import { toast } from "react-hot-toast"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 
 interface SubcriptionButtonProps {
-  isPro: boolean;
+  isPro: boolean
 }
 
 export const SubscriptionButton = ({
-  isPro = false
+  isPro = false,
 }: SubcriptionButtonProps) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const onClick = async () => {
     try {

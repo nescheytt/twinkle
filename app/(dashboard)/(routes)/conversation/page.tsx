@@ -13,7 +13,7 @@ import { Heading } from "@/components/heading"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Empty } from "@/components/empty"
+import { Empty } from "@/components/ui/empty"
 import { Loader } from "@/components/loader"
 import { UserAvatar } from "@/components/user-avatar"
 import { BotAvatar } from "@/components/bot-avatar"
@@ -41,12 +41,14 @@ const ConversationPage = () => {
     try {
       const userMessage = {
         role: "user",
-        content: values.prompt
+        content: values.prompt,
       }
 
       const newMessage = [...messages, userMessage]
 
-      const response = await axios.post("/api/conversation", { messages: newMessage })
+      const response = await axios.post("/api/conversation", {
+        messages: newMessage,
+      })
 
       setMessages((current: any) => [...current, userMessage, response.data])
 
@@ -121,13 +123,13 @@ const ConversationPage = () => {
                 key={message.content}
                 className={cn(
                   "p-8 w-full flex items-center gap-y-8 rounded-lg",
-                  message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+                  message.role === "user"
+                    ? "bg-white border border-black/10"
+                    : "bg-muted"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">
-                  {message.content}
-                </p>
+                <p className="text-sm">{message.content}</p>
               </div>
             ))}
           </div>

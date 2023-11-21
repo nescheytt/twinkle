@@ -14,7 +14,7 @@ import { Heading } from "@/components/heading"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Empty } from "@/components/empty"
+import { Empty } from "@/components/ui/empty"
 import { Loader } from "@/components/loader"
 import { UserAvatar } from "@/components/user-avatar"
 import { BotAvatar } from "@/components/bot-avatar"
@@ -42,7 +42,7 @@ const CodePage = () => {
     try {
       const userMessage = {
         role: "user",
-        content: values.prompt
+        content: values.prompt,
       }
 
       const newMessage = [...messages, userMessage]
@@ -122,7 +122,9 @@ const CodePage = () => {
                 key={message.content}
                 className={cn(
                   "p-8 w-full flex items-center gap-y-8 rounded-lg",
-                  message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+                  message.role === "user"
+                    ? "bg-white border border-black/10"
+                    : "bg-muted"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
@@ -135,7 +137,7 @@ const CodePage = () => {
                     ),
                     code: ({ node, ...props }) => (
                       <code className="bg-black/10 p-1 rounded-lg" {...props} />
-                    )
+                    ),
                   }}
                   className="text-sm overflow-hidden leading-7"
                 >

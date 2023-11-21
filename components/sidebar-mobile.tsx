@@ -13,7 +13,7 @@ interface SidebarMobileProps {
 
 const SidebarMobile = ({
   apiLimitCount = 0,
-  isPro = false
+  isPro = false,
 }: SidebarMobileProps) => {
   const [isMounted, setIsMounted] = useState(false)
 
